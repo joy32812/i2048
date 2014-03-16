@@ -27,6 +27,7 @@
     
     BOOL hasMovedInThisSwipe;
     int fourCnt;
+    int theScore;
 }
 
 - (void)viewDidLoad
@@ -62,7 +63,7 @@
     tileLabel.textAlignment = NSTextAlignmentCenter;
     tileLabel.textColor = UIColorFromRGB(0x766e66);
     tileLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:30];
-    tileLabel.backgroundColor = UIColorFromRGB(0xede4db);
+    tileLabel.backgroundColor = [self getBackgroudForNum:num];
     tileLabel.tag = row * 4 + col + 1;
     tileLabel.adjustsFontSizeToFitWidth = YES;
     
@@ -111,6 +112,9 @@
 
 - (void)startTheGame
 {
+    theScore = 0;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", theScore];
+    
     [self clearTheBoard];
     [self randomPut];
     [self randomPut];
@@ -121,6 +125,22 @@
     return CGRectMake(GAP_LENGTH * (col + 1) + col * TILE_LENGTH,GAP_LENGTH * (row + 1) + row * TILE_LENGTH, TILE_LENGTH, TILE_LENGTH);
 }
 
+- (UIColor *)getBackgroudForNum:(int)num
+{
+    if (num == 2) return UIColorFromRGB(0xede4db);
+    if (num == 4) return UIColorFromRGB(0xecdfc9);
+    if (num == 8) return UIColorFromRGB(0xebb37f);
+    if (num == 16) return UIColorFromRGB(0xa50e4e);
+    if (num == 32) return UIColorFromRGB(0x750ea5);
+    if (num == 64) return UIColorFromRGB(0x0e1ca5);
+    if (num == 128) return UIColorFromRGB(0x0e7ca5);
+    if (num == 256) return UIColorFromRGB(0x0ea578);
+    if (num == 512) return UIColorFromRGB(0xa5a30e);
+    if (num == 1024) return UIColorFromRGB(0xf5170c);
+    if (num == 2048) return UIColorFromRGB(0xb27a18);
+    if (num == 4096) return UIColorFromRGB(0xede4db);
+    return [UIColor blackColor];
+}
 
 - (void)moveTileFromRow:(int)fromRow fromCol:(int)fromCol toRow:(int)toRow toCol:(int)toCol
 {
@@ -140,10 +160,29 @@
     } completion:^(BOOL finished) {
         if (toTile) [movingTile removeFromSuperview];
         
-        if (toTile) toTile.text = [NSString stringWithFormat:@"%d", grid[toRow][toCol]];
+        if (toTile) {
+            toTile.text = [NSString stringWithFormat:@"%d", grid[toRow][toCol]];
+            if (grid[toRow][toCol] > 8) {
+                toTile.textColor = [UIColor whiteColor];
+            }
+            toTile.backgroundColor = [self getBackgroudForNum:grid[toRow][toCol]];
+            toTile.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            [UIView animateWithDuration:0.2 animations:^{
+                toTile.transform = CGAffineTransformIdentity;
+            }];
+        }
         
-        
+        if (toTile) {
+            [self addScore:grid[toRow][toCol]/2];
+        }
     }];
+}
+
+- (void)addScore:(int)score
+{
+    int finalScore = score - 1 + (int)log2(score);
+    theScore += finalScore;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", theScore];
 }
 
 - (void)swipeLeftAtRow:(int)row
