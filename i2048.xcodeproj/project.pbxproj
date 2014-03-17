@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB101C8E18D6E7B300756057 /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FB101C8C18D6E7B300756057 /* DomobAdSDKBundle.bundle */; };
+		FB101C8F18D6E7B300756057 /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C8D18D6E7B300756057 /* libDomobAdSDK.a */; };
+		FB101C9118D6E7D300756057 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9018D6E7D300756057 /* Security.framework */; };
+		FB101C9318D6E7DB00756057 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9218D6E7DB00756057 /* CoreTelephony.framework */; };
+		FB101C9518D6E7E000756057 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9418D6E7E000756057 /* MessageUI.framework */; };
+		FB101C9718D6E7E800756057 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9618D6E7E800756057 /* CFNetwork.framework */; };
+		FB101C9918D6E7EF00756057 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9818D6E7EF00756057 /* MobileCoreServices.framework */; };
+		FB101C9B18D6E7F800756057 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9A18D6E7F800756057 /* libz.dylib */; };
+		FB101C9D18D6E80B00756057 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9C18D6E80B00756057 /* CoreMedia.framework */; };
+		FB101C9F18D6E81D00756057 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101C9E18D6E81D00756057 /* MediaPlayer.framework */; };
+		FB101CA118D6E82500756057 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CA018D6E82500756057 /* QuartzCore.framework */; };
+		FB101CA318D6E8B700756057 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CA218D6E8B700756057 /* CoreText.framework */; };
+		FB101CA518D6E8C100756057 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CA418D6E8C100756057 /* AdSupport.framework */; };
+		FB101CA718D6E8C800756057 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CA618D6E8C800756057 /* CoreLocation.framework */; };
+		FB101CA918D6E8CE00756057 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CA818D6E8CE00756057 /* StoreKit.framework */; };
+		FB101CAB18D6E8E700756057 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CAA18D6E8E700756057 /* PassKit.framework */; };
+		FB101CAD18D6E91A00756057 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CAC18D6E91A00756057 /* Social.framework */; };
+		FB101CAF18D6E92800756057 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CAE18D6E92700756057 /* EventKit.framework */; };
+		FB101CB118D6E95D00756057 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB018D6E95D00756057 /* AVFoundation.framework */; };
+		FB101CB318D6E96600756057 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB218D6E96600756057 /* AudioToolbox.framework */; };
+		FB101CB518D6E97D00756057 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB418D6E97D00756057 /* libsqlite3.dylib */; };
+		FB101CB718D6E99300756057 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB618D6E99300756057 /* SystemConfiguration.framework */; };
 		FB6CA1D618D5B7F500CC9538 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D518D5B7F500CC9538 /* Foundation.framework */; };
 		FB6CA1D818D5B7F500CC9538 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D718D5B7F500CC9538 /* CoreGraphics.framework */; };
 		FB6CA1DA18D5B7F500CC9538 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D918D5B7F500CC9538 /* UIKit.framework */; };
@@ -34,6 +56,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB101C8518D6E7B300756057 /* DMAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMAdView.h; sourceTree = "<group>"; };
+		FB101C8618D6E7B300756057 /* DMFeedsAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMFeedsAdView.h; sourceTree = "<group>"; };
+		FB101C8718D6E7B300756057 /* DMInterstitialAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMInterstitialAdController.h; sourceTree = "<group>"; };
+		FB101C8818D6E7B300756057 /* DMRTSplashAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMRTSplashAdController.h; sourceTree = "<group>"; };
+		FB101C8918D6E7B300756057 /* DMSplashAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSplashAdController.h; sourceTree = "<group>"; };
+		FB101C8A18D6E7B300756057 /* DMTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTools.h; sourceTree = "<group>"; };
+		FB101C8C18D6E7B300756057 /* DomobAdSDKBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DomobAdSDKBundle.bundle; sourceTree = "<group>"; };
+		FB101C8D18D6E7B300756057 /* libDomobAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomobAdSDK.a; sourceTree = "<group>"; };
+		FB101C9018D6E7D300756057 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FB101C9218D6E7DB00756057 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FB101C9418D6E7E000756057 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FB101C9618D6E7E800756057 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FB101C9818D6E7EF00756057 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FB101C9A18D6E7F800756057 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FB101C9C18D6E80B00756057 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FB101C9E18D6E81D00756057 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FB101CA018D6E82500756057 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB101CA218D6E8B700756057 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		FB101CA418D6E8C100756057 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FB101CA618D6E8C800756057 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FB101CA818D6E8CE00756057 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FB101CAA18D6E8E700756057 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		FB101CAC18D6E91A00756057 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FB101CAE18D6E92700756057 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		FB101CB018D6E95D00756057 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FB101CB218D6E96600756057 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FB101CB418D6E97D00756057 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FB101CB618D6E99300756057 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FB6CA1D218D5B7F500CC9538 /* i2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6CA1D518D5B7F500CC9538 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB6CA1D718D5B7F500CC9538 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,7 +110,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB101CB718D6E99300756057 /* SystemConfiguration.framework in Frameworks */,
+				FB101CB518D6E97D00756057 /* libsqlite3.dylib in Frameworks */,
+				FB101CB318D6E96600756057 /* AudioToolbox.framework in Frameworks */,
+				FB101CB118D6E95D00756057 /* AVFoundation.framework in Frameworks */,
+				FB101CAF18D6E92800756057 /* EventKit.framework in Frameworks */,
+				FB101CAD18D6E91A00756057 /* Social.framework in Frameworks */,
+				FB101CAB18D6E8E700756057 /* PassKit.framework in Frameworks */,
+				FB101CA918D6E8CE00756057 /* StoreKit.framework in Frameworks */,
+				FB101CA718D6E8C800756057 /* CoreLocation.framework in Frameworks */,
+				FB101CA518D6E8C100756057 /* AdSupport.framework in Frameworks */,
+				FB101CA318D6E8B700756057 /* CoreText.framework in Frameworks */,
+				FB101CA118D6E82500756057 /* QuartzCore.framework in Frameworks */,
+				FB101C9F18D6E81D00756057 /* MediaPlayer.framework in Frameworks */,
+				FB101C9D18D6E80B00756057 /* CoreMedia.framework in Frameworks */,
+				FB101C9B18D6E7F800756057 /* libz.dylib in Frameworks */,
+				FB101C9918D6E7EF00756057 /* MobileCoreServices.framework in Frameworks */,
+				FB101C9718D6E7E800756057 /* CFNetwork.framework in Frameworks */,
+				FB101C9518D6E7E000756057 /* MessageUI.framework in Frameworks */,
+				FB101C9318D6E7DB00756057 /* CoreTelephony.framework in Frameworks */,
+				FB101C9118D6E7D300756057 /* Security.framework in Frameworks */,
 				FB6CA1D818D5B7F500CC9538 /* CoreGraphics.framework in Frameworks */,
+				FB101C8F18D6E7B300756057 /* libDomobAdSDK.a in Frameworks */,
 				FB6CA1DA18D5B7F500CC9538 /* UIKit.framework in Frameworks */,
 				FB6CA1D618D5B7F500CC9538 /* Foundation.framework in Frameworks */,
 			);
@@ -79,6 +150,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB101C8418D6E7B300756057 /* DomobAdSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FB101C8518D6E7B300756057 /* DMAdView.h */,
+				FB101C8618D6E7B300756057 /* DMFeedsAdView.h */,
+				FB101C8718D6E7B300756057 /* DMInterstitialAdController.h */,
+				FB101C8818D6E7B300756057 /* DMRTSplashAdController.h */,
+				FB101C8918D6E7B300756057 /* DMSplashAdController.h */,
+				FB101C8A18D6E7B300756057 /* DMTools.h */,
+				FB101C8B18D6E7B300756057 /* DomobAdSDKBundle */,
+				FB101C8D18D6E7B300756057 /* libDomobAdSDK.a */,
+			);
+			path = DomobAdSDK;
+			sourceTree = "<group>";
+		};
+		FB101C8B18D6E7B300756057 /* DomobAdSDKBundle */ = {
+			isa = PBXGroup;
+			children = (
+				FB101C8C18D6E7B300756057 /* DomobAdSDKBundle.bundle */,
+			);
+			path = DomobAdSDKBundle;
+			sourceTree = "<group>";
+		};
 		FB6CA1C918D5B7F500CC9538 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +195,26 @@
 		FB6CA1D418D5B7F500CC9538 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB101CB618D6E99300756057 /* SystemConfiguration.framework */,
+				FB101CB418D6E97D00756057 /* libsqlite3.dylib */,
+				FB101CB218D6E96600756057 /* AudioToolbox.framework */,
+				FB101CB018D6E95D00756057 /* AVFoundation.framework */,
+				FB101CAE18D6E92700756057 /* EventKit.framework */,
+				FB101CAC18D6E91A00756057 /* Social.framework */,
+				FB101CAA18D6E8E700756057 /* PassKit.framework */,
+				FB101CA818D6E8CE00756057 /* StoreKit.framework */,
+				FB101CA618D6E8C800756057 /* CoreLocation.framework */,
+				FB101CA418D6E8C100756057 /* AdSupport.framework */,
+				FB101CA218D6E8B700756057 /* CoreText.framework */,
+				FB101CA018D6E82500756057 /* QuartzCore.framework */,
+				FB101C9E18D6E81D00756057 /* MediaPlayer.framework */,
+				FB101C9C18D6E80B00756057 /* CoreMedia.framework */,
+				FB101C9A18D6E7F800756057 /* libz.dylib */,
+				FB101C9818D6E7EF00756057 /* MobileCoreServices.framework */,
+				FB101C9618D6E7E800756057 /* CFNetwork.framework */,
+				FB101C9418D6E7E000756057 /* MessageUI.framework */,
+				FB101C9218D6E7DB00756057 /* CoreTelephony.framework */,
+				FB101C9018D6E7D300756057 /* Security.framework */,
 				FB6CA1D518D5B7F500CC9538 /* Foundation.framework */,
 				FB6CA1D718D5B7F500CC9538 /* CoreGraphics.framework */,
 				FB6CA1D918D5B7F500CC9538 /* UIKit.framework */,
@@ -112,6 +226,7 @@
 		FB6CA1DB18D5B7F500CC9538 /* i2048 */ = {
 			isa = PBXGroup;
 			children = (
+				FB101C8418D6E7B300756057 /* DomobAdSDK */,
 				FB6CA1E418D5B7F500CC9538 /* AppDelegate.h */,
 				FB6CA1E518D5B7F500CC9538 /* AppDelegate.m */,
 				FB6CA1E718D5B7F500CC9538 /* Main.storyboard */,
@@ -229,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB6CA1EE18D5B7F500CC9538 /* Images.xcassets in Resources */,
+				FB101C8E18D6E7B300756057 /* DomobAdSDKBundle.bundle in Resources */,
 				FB6CA1E018D5B7F500CC9538 /* InfoPlist.strings in Resources */,
 				FB6CA1E918D5B7F500CC9538 /* Main.storyboard in Resources */,
 			);
@@ -334,8 +450,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -368,6 +485,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -380,6 +498,15 @@
 				GCC_PREFIX_HEADER = "i2048/i2048-Prefix.pch";
 				INFOPLIST_FILE = "i2048/i2048-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/i2048/DomobAdSDK",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +521,14 @@
 				GCC_PREFIX_HEADER = "i2048/i2048-Prefix.pch";
 				INFOPLIST_FILE = "i2048/i2048-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/i2048/DomobAdSDK",
+				);
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,6 +593,7 @@
 				FB6CA20618D5B7F500CC9538 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB6CA20718D5B7F500CC9538 /* Build configuration list for PBXNativeTarget "i2048Tests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +602,7 @@
 				FB6CA20918D5B7F500CC9538 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

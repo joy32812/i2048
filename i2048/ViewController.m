@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define NUM 4
@@ -28,6 +29,24 @@
     BOOL hasMovedInThisSwipe;
     int fourCnt;
     int theScore;
+    
+    DMAdView *_dmAdView;
+}
+
+- (void)loadDuoMengAd
+{
+    _dmAdView = [[DMAdView alloc] initWithPublisherId:@"56OJwkJYuNLAkxcjIa"
+                                          placementId:@"16TLuIFaApfPwNUfzW3C70Gs" size:DOMOB_AD_SIZE_320x50];
+    // 设置广告视图的位置
+    _dmAdView.frame = CGRectMake(0, 0, DOMOB_AD_SIZE_320x50.width, DOMOB_AD_SIZE_320x50.height);
+    
+    _dmAdView.delegate = self;
+    // 设置 Delegate
+    _dmAdView.rootViewController = self;
+    // 设置 RootViewController
+    [self.view addSubview:_dmAdView];
+    // 将⼲⼴广告视图添加到⽗父视图中
+    [_dmAdView loadAd]; // 开始加载广告
 }
 
 - (void)viewDidLoad
@@ -35,6 +54,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self loadDuoMengAd];
     [self startTheGame];
 }
 
@@ -302,6 +322,16 @@
 }
 
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    [_dmAdView removeFromSuperview]; // 将⼲⼴广告试图从⽗父视图中移除
+}
+
+- (void)dealloc
+{
+    _dmAdView.delegate = nil;
+    _dmAdView.rootViewController = nil;
+}
 
 - (void)didReceiveMemoryWarning
 {

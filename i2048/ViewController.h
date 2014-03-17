@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DMAdView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <DMAdViewDelegate>
 
 @end
