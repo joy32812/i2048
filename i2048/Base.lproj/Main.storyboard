@@ -179,6 +179,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-45" y="-10"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

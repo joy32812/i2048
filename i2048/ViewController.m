@@ -56,6 +56,7 @@
     
     [self loadDuoMengAd];
     [self startTheGame];
+    
 }
 
 - (void)clearTheBoard
@@ -107,15 +108,11 @@
         }
     }
 
-    if (zeroGrids.count <= 0) {
-        NSLog(@"game over");
-        return;
-    }
+    
     
     int pos = [zeroGrids[arc4random() % zeroGrids.count] intValue];
     int row = pos / NUM;
     int col = pos % NUM;
-    NSLog(@"%d  %d", row, col);
     
     BOOL isFour = arc4random() % 2 == 0;
     int num = 2;
@@ -127,6 +124,136 @@
         }
     }
     [self addTileAtRow:row atCol:col withNum:num];
+    
+    if ([self loseTheGame]) {
+        NSLog(@"game over");
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"GameOver" message:nil delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+        [av show];
+    }
+}
+
+- (BOOL)canSwipeLeftAtRow:(int)row
+{
+    BOOL hasMerged = NO;
+    int col = -1;
+    for (int j = 0; j < NUM; j++) {
+        if (grid[row][j] > 0) {
+            if (col != -1 && !hasMerged && col != j && grid[row][j] == grid[row][col]) {
+                //merge
+                hasMerged = YES;
+                if (j != col) return YES;
+//                [self moveTileFromRow:row fromCol:j toRow:row toCol:col];
+            }else {
+                col++;
+                if (j != col) return YES;
+//                [self moveTileFromRow:row fromCol:j toRow:row toCol:col];
+            }
+        }
+    }
+    
+    return NO;
+}
+- (BOOL)canSwipeLeft
+{
+    for (int i = 0; i < NUM; i++) {
+        if ([self canSwipeLeftAtRow:i]) return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canSwipeRightAtRow:(int)row
+{
+    BOOL hasMerged = NO;
+    int col = NUM;
+    for (int j = NUM - 1; j >= 0; j--) {
+        if (grid[row][j] > 0) {
+            if (col != NUM && !hasMerged && col != j && grid[row][j] == grid[row][col]) {
+                //merge
+                hasMerged = YES;
+                if (j != col) return YES;
+//                [self moveTileFromRow:row fromCol:j toRow:row toCol:col];
+            }else {
+                col--;
+                if (j != col) return YES;
+//                [self moveTileFromRow:row fromCol:j toRow:row toCol:col];
+            }
+        }
+    }
+    
+    return NO;
+}
+- (BOOL)canSwipeRight
+{
+    for (int i = 0; i < NUM; i++) {
+        if ([self canSwipeRightAtRow:i]) return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canSwipeUpAtCol:(int)col
+{
+    BOOL hasMerged = NO;
+    int row = -1;
+    for (int i = 0; i < NUM; i++) {
+        if (grid[i][col] > 0) {
+            if (row != -1 && !hasMerged && row != i && grid[row][col] == grid[i][col]) {
+                //merge
+                hasMerged = YES;
+                if (i != row) return YES;
+//                [self moveTileFromRow:i fromCol:col toRow:row toCol:col];
+            }else {
+                row++;
+                if (i != row) return YES;
+//                [self moveTileFromRow:i fromCol:col toRow:row toCol:col];
+            }
+        }
+    }
+    
+    return NO;
+}
+- (BOOL)canSwipeUp
+{
+    for (int i = 0; i < NUM; i++) {
+        if ([self canSwipeUpAtCol:i]) return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canSwipeDownAtCol:(int)col
+{
+    BOOL hasMerged = NO;
+    int row = NUM;
+    for (int i = NUM - 1; i >=0; i--) {
+        if (grid[i][col] > 0) {
+            if (row != NUM && !hasMerged && row != i && grid[row][col] == grid[i][col]) {
+                //merge
+                hasMerged = YES;
+                if (i != row) return YES;
+//                [self moveTileFromRow:i fromCol:col toRow:row toCol:col];
+            }else {
+                row--;
+                if (i != row) return YES;
+//                [self moveTileFromRow:i fromCol:col toRow:row toCol:col];
+            }
+        }
+    }
+    return NO;
+}
+- (BOOL)canSwipeDown
+{
+    for (int i = 0; i < NUM; i++) {
+        if ([self canSwipeDownAtCol:i]) return YES;
+    }
+    return NO;
+}
+- (BOOL)loseTheGame
+{
+    if ([self canSwipeLeft]) return NO;
+    if ([self canSwipeRight]) return NO;
+    if ([self canSwipeUp]) return NO;
+    if ([self canSwipeDown]) return NO;
+    
+    return YES;
 }
 
 
@@ -186,7 +313,7 @@
                 toTile.textColor = [UIColor whiteColor];
             }
             toTile.backgroundColor = [self getBackgroudForNum:grid[toRow][toCol]];
-            toTile.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            toTile.transform = CGAffineTransformMakeScale(1.5, 1.5);
             [UIView animateWithDuration:0.2 animations:^{
                 toTile.transform = CGAffineTransformIdentity;
             }];
