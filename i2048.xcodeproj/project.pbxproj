@@ -29,6 +29,7 @@
 		FB101CB318D6E96600756057 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB218D6E96600756057 /* AudioToolbox.framework */; };
 		FB101CB518D6E97D00756057 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB418D6E97D00756057 /* libsqlite3.dylib */; };
 		FB101CB718D6E99300756057 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB101CB618D6E99300756057 /* SystemConfiguration.framework */; };
+		FB59A2A618D7EA3000B56D0E /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59A2A518D7EA3000B56D0E /* Helper.m */; };
 		FB6CA1D618D5B7F500CC9538 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D518D5B7F500CC9538 /* Foundation.framework */; };
 		FB6CA1D818D5B7F500CC9538 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D718D5B7F500CC9538 /* CoreGraphics.framework */; };
 		FB6CA1DA18D5B7F500CC9538 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6CA1D918D5B7F500CC9538 /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		FB101CB218D6E96600756057 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FB101CB418D6E97D00756057 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FB101CB618D6E99300756057 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FB59A2A418D7EA3000B56D0E /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		FB59A2A518D7EA3000B56D0E /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		FB6CA1D218D5B7F500CC9538 /* i2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6CA1D518D5B7F500CC9538 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB6CA1D718D5B7F500CC9538 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -232,6 +235,8 @@
 				FB6CA1E718D5B7F500CC9538 /* Main.storyboard */,
 				FB6CA1EA18D5B7F500CC9538 /* ViewController.h */,
 				FB6CA1EB18D5B7F500CC9538 /* ViewController.m */,
+				FB59A2A418D7EA3000B56D0E /* Helper.h */,
+				FB59A2A518D7EA3000B56D0E /* Helper.m */,
 				FB6CA1ED18D5B7F500CC9538 /* Images.xcassets */,
 				FB6CA1DC18D5B7F500CC9538 /* Supporting Files */,
 			);
@@ -368,6 +373,7 @@
 				FB6CA1EC18D5B7F500CC9538 /* ViewController.m in Sources */,
 				FB6CA1E618D5B7F500CC9538 /* AppDelegate.m in Sources */,
 				FB6CA1E218D5B7F500CC9538 /* main.m in Sources */,
+				FB59A2A618D7EA3000B56D0E /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

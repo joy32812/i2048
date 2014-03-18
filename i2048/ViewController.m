@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "Helper.h"
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -15,10 +17,22 @@
 #define GAP_LENGTH 10
 #define TILE_LENGTH 50
 #define DELAY_SECOND 0.1
+#define CORNER_RADIUS 3.0
+
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+#define PAUSE_OLD_CENTER CGPointMake(SCREEN_WIDTH + SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+#define PAUSE_NEW_CENTER CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *board;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UIView *scoreBGView;
+@property (weak, nonatomic) IBOutlet UIView *gamePauseView;
+@property (weak, nonatomic) IBOutlet UIView *gameOverView;
+@property (weak, nonatomic) IBOutlet UILabel *bestScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentScoreLabel;
 
 @end
 
@@ -54,8 +68,37 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self setupUI];
+    
     [self loadDuoMengAd];
     [self startTheGame];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.gamePauseView.center = PAUSE_OLD_CENTER;
+    self.gameOverView.center = PAUSE_OLD_CENTER;
+}
+
+
+- (void)setupUI
+{
+    
+    
+    
+    
+    self.board.layer.cornerRadius = CORNER_RADIUS;
+    for (int i = 100; i < 100 + NUM * NUM; i++) {
+        UIView *subview = [self.board viewWithTag:i];
+        subview.layer.cornerRadius = CORNER_RADIUS;
+    }
+    
+    self.scoreBGView.layer.cornerRadius = CORNER_RADIUS;
+    
+    
+    
     
 }
 
@@ -83,10 +126,21 @@
     tileLabel.text = [NSString stringWithFormat:@"%d", num];
     tileLabel.textAlignment = NSTextAlignmentCenter;
     tileLabel.textColor = UIColorFromRGB(0x766e66);
+    if (num >= 8) {
+        tileLabel.textColor = [UIColor whiteColor];
+    }
     tileLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:30];
     tileLabel.backgroundColor = [self getBackgroudForNum:num];
     tileLabel.tag = row * 4 + col + 1;
     tileLabel.adjustsFontSizeToFitWidth = YES;
+//    tileLabel.layer.cornerRadius = CORNER_RADIUS;
+    CALayer * l1 = [tileLabel layer];
+    [l1 setMasksToBounds:YES];
+    [l1 setCornerRadius:CORNER_RADIUS];
+    
+    // You can even add a border
+//    [l1 setBorderWidth:5.0];
+//    [l1 setBorderColor:[[UIColor darkGrayColor] CGColor]];
     
     grid[row][col] = num;
     
@@ -126,11 +180,12 @@
     [self addTileAtRow:row atCol:col withNum:num];
     
     if ([self loseTheGame]) {
-        NSLog(@"game over");
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"GameOver" message:nil delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
-        [av show];
+        
+        [self showGameOverView];
     }
 }
+
+
 
 - (BOOL)canSwipeLeftAtRow:(int)row
 {
@@ -265,6 +320,20 @@
     [self clearTheBoard];
     [self randomPut];
     [self randomPut];
+    
+    /*
+    [self addTileAtRow:0 atCol:0 withNum:2];
+    [self addTileAtRow:0 atCol:1 withNum:4];
+    [self addTileAtRow:0 atCol:2 withNum:8];
+    [self addTileAtRow:0 atCol:3 withNum:16];
+    [self addTileAtRow:1 atCol:0 withNum:32];
+    [self addTileAtRow:1 atCol:1 withNum:64];
+    [self addTileAtRow:1 atCol:2 withNum:128];
+    [self addTileAtRow:1 atCol:3 withNum:256];
+    [self addTileAtRow:2 atCol:0 withNum:512];
+    [self addTileAtRow:2 atCol:1 withNum:1024];
+    [self addTileAtRow:2 atCol:2 withNum:2048];
+    [self addTileAtRow:2 atCol:3 withNum:4096];*/
 }
 
 - (CGRect)makeFrameWithRow:(int)row col:(int)col
@@ -277,15 +346,15 @@
     if (num == 2) return UIColorFromRGB(0xede4db);
     if (num == 4) return UIColorFromRGB(0xecdfc9);
     if (num == 8) return UIColorFromRGB(0xebb37f);
-    if (num == 16) return UIColorFromRGB(0xa50e4e);
-    if (num == 32) return UIColorFromRGB(0x750ea5);
-    if (num == 64) return UIColorFromRGB(0x0e1ca5);
-    if (num == 128) return UIColorFromRGB(0x0e7ca5);
-    if (num == 256) return UIColorFromRGB(0x0ea578);
-    if (num == 512) return UIColorFromRGB(0xa5a30e);
-    if (num == 1024) return UIColorFromRGB(0xf5170c);
-    if (num == 2048) return UIColorFromRGB(0xb27a18);
-    if (num == 4096) return UIColorFromRGB(0xede4db);
+    if (num == 16) return UIColorFromRGB(0xe86c23);
+    if (num == 32) return UIColorFromRGB(0x983c05);
+    if (num == 64) return UIColorFromRGB(0xb60909);
+    if (num == 128) return UIColorFromRGB(0xa5c316);
+    if (num == 256) return UIColorFromRGB(0x516106);
+    if (num == 512) return UIColorFromRGB(0x1b3c03);
+    if (num == 1024) return UIColorFromRGB(0x2f6c79);
+    if (num == 2048) return UIColorFromRGB(0x4a1f6f);
+    if (num == 4096) return UIColorFromRGB(0xa20cb0);
     return [UIColor blackColor];
 }
 
@@ -309,7 +378,7 @@
         
         if (toTile) {
             toTile.text = [NSString stringWithFormat:@"%d", grid[toRow][toCol]];
-            if (grid[toRow][toCol] > 8) {
+            if (grid[toRow][toCol] >= 8) {
                 toTile.textColor = [UIColor whiteColor];
             }
             toTile.backgroundColor = [self getBackgroudForNum:grid[toRow][toCol]];
@@ -446,12 +515,93 @@
 
 - (IBAction)pauseTheGame:(id)sender {
     NSLog(@"pause");
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.gamePauseView.center = PAUSE_NEW_CENTER;
+    }];
+    
+    for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+        recognizer.enabled = NO;
+    }
 }
 
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     [_dmAdView removeFromSuperview]; // 将⼲⼴广告试图从⽗父视图中移除
+}
+
+- (IBAction)resume:(id)sender {
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.gamePauseView.center = PAUSE_OLD_CENTER;
+    }];
+    
+    for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+        recognizer.enabled = YES;
+    }
+    
+}
+
+- (IBAction)restart:(id)sender {
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.gamePauseView.center = PAUSE_OLD_CENTER;
+        self.gameOverView.center = PAUSE_OLD_CENTER;
+    }];
+    
+    for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+        recognizer.enabled = YES;
+    }
+    
+    [self startTheGame];
+}
+
+- (void)finallyShowGameOverView
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.gameOverView.center = PAUSE_NEW_CENTER;
+    }];
+    
+    for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
+        recognizer.enabled = NO;
+    }
+    
+    self.currentScoreLabel.text = [NSString stringWithFormat:@"%d", theScore];
+    
+    int bestScore = [Helper bestScore];
+    if (bestScore < theScore) {
+        bestScore = theScore;
+        [Helper setBestScore:bestScore];
+    }
+    self.bestScoreLabel.text = [NSString stringWithFormat:@"%d", bestScore];
+}
+
+- (void)showGameOverView
+{
+    NSLog(@"game over");
+    
+    
+    
+    
+    for (int i = 0; i < NUM * NUM; i++) {
+        UILabel *tile = (UILabel *)[_board viewWithTag:i + 1];
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:tile cache:YES];
+        [UIView commitAnimations];
+    }
+    for (int i = 0; i < NUM; i++) {
+        for (int j = 0; j < NUM; j++) {
+            int num = grid[i][j];
+            theScore += num;
+            self.scoreLabel.text = [NSString stringWithFormat:@"%d", theScore];
+        }
+    }
+    
+    [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:1.0];
+    
 }
 
 - (void)dealloc
