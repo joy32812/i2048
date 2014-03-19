@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Helper.h"
+#import "GameCenterManager.h"
+#import "UMSocial.h"
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -573,6 +575,10 @@
     if (bestScore < theScore) {
         bestScore = theScore;
         [Helper setBestScore:bestScore];
+        
+        
+        //Put when you post a score to a leaderboard
+        [[GameCenterManager sharedGameCenterManager] reportScore:bestScore forCategory:@"WXY"];
     }
     self.bestScoreLabel.text = [NSString stringWithFormat:@"%d", bestScore];
 }
@@ -602,6 +608,21 @@
     
     [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:1.0];
     
+}
+- (IBAction)showGameCenter:(id)sender {
+    [[GameCenterManager sharedGameCenterManager] showLeaderboardsFromViewController:self];
+}
+
+- (IBAction)reportScore:(id)sender {
+    [[GameCenterManager sharedGameCenterManager] reportScore:theScore forCategory:@"WXY"];
+}
+- (IBAction)share:(id)sender {
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"5329271256240b6b3f01b902"
+                                      shareText:@"你要分享的文字"
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession, UMShareToWechatTimeline, UMShareToFacebook, UMShareToTwitter,nil]
+                                       delegate:nil];
 }
 
 - (void)dealloc

@@ -7,11 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "GameCenterManager.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Put in applicationDidFinishLaunching
+    [[GameCenterManager sharedGameCenterManager] authenticateLocalPlayer];
+    
+    [UMSocialData setAppKey:@"5329271256240b6b3f01b902"];
+    [UMSocialWechatHandler setWXAppId:@"wxadfab11c23939393" url:nil];
+    
     // Override point for customization after application launch.
     return YES;
 }
