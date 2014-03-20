@@ -61,6 +61,12 @@
 		FB7EA04418D9600D0071103A /* libSocialTwitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7EA03B18D9600D0071103A /* libSocialTwitter.a */; };
 		FB7EA04518D9600D0071103A /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7EA03E18D9600D0071103A /* libSocialWechat.a */; };
 		FB7EA04618D9600D0071103A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7EA03F18D9600D0071103A /* libWeChatSDK.a */; };
+		FB7EA04E18DA58300071103A /* gamecenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04818DA58300071103A /* gamecenter@2x.png */; };
+		FB7EA04F18DA58300071103A /* new_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04918DA58300071103A /* new_record@2x.png */; };
+		FB7EA05018DA58300071103A /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04A18DA58300071103A /* pause@2x.png */; };
+		FB7EA05118DA58300071103A /* restart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04B18DA58300071103A /* restart@2x.png */; };
+		FB7EA05218DA58300071103A /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04C18DA58300071103A /* share@2x.png */; };
+		FB7EA05318DA58300071103A /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04D18DA58300071103A /* start@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +165,12 @@
 		FB7EA04018D9600D0071103A /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		FB7EA04118D9600D0071103A /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		FB7EA04218D9600D0071103A /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		FB7EA04818DA58300071103A /* gamecenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gamecenter@2x.png"; sourceTree = "<group>"; };
+		FB7EA04918DA58300071103A /* new_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_record@2x.png"; sourceTree = "<group>"; };
+		FB7EA04A18DA58300071103A /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
+		FB7EA04B18DA58300071103A /* restart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restart@2x.png"; sourceTree = "<group>"; };
+		FB7EA04C18DA58300071103A /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		FB7EA04D18DA58300071103A /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +301,7 @@
 		FB6CA1DB18D5B7F500CC9538 /* i2048 */ = {
 			isa = PBXGroup;
 			children = (
+				FB7EA04718DA58300071103A /* assets */,
 				FB7EA03618D9600D0071103A /* UMSocial_Sdk_Extra_Frameworks */,
 				FB7EA01018D95FC10071103A /* UMSocial_Sdk_3.3.6 */,
 				FB101C8418D6E7B300756057 /* DomobAdSDK */,
@@ -422,6 +435,19 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		FB7EA04718DA58300071103A /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				FB7EA04818DA58300071103A /* gamecenter@2x.png */,
+				FB7EA04918DA58300071103A /* new_record@2x.png */,
+				FB7EA04A18DA58300071103A /* pause@2x.png */,
+				FB7EA04B18DA58300071103A /* restart@2x.png */,
+				FB7EA04C18DA58300071103A /* share@2x.png */,
+				FB7EA04D18DA58300071103A /* start@2x.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -505,16 +531,22 @@
 				FB7EA03118D95FC10071103A /* UMShareEditViewControlleriPad.xib in Resources */,
 				FB7EA03318D95FC10071103A /* UMSnsAccountViewController.xib in Resources */,
 				FB7EA02E18D95FC10071103A /* UMSCommentInputController.xib in Resources */,
+				FB7EA05318DA58300071103A /* start@2x.png in Resources */,
 				FB7EA02D18D95FC10071103A /* UMSCommentDetailController.xib in Resources */,
 				FB6CA1EE18D5B7F500CC9538 /* Images.xcassets in Resources */,
 				FB101C8E18D6E7B300756057 /* DomobAdSDKBundle.bundle in Resources */,
+				FB7EA05218DA58300071103A /* share@2x.png in Resources */,
+				FB7EA04F18DA58300071103A /* new_record@2x.png in Resources */,
 				FB7EA03518D95FC10071103A /* UMSocialSDKResourcesNew.bundle in Resources */,
 				FB7EA02F18D95FC10071103A /* UMSCommentInputControlleriPad.xib in Resources */,
 				FB7EA03018D95FC10071103A /* UMShareEditViewController.xib in Resources */,
 				FB7EA03418D95FC10071103A /* UMSShareListController.xib in Resources */,
 				FB7EA02B18D95FC10071103A /* UMSocialLocalizable.strings in Resources */,
 				FB6CA1E018D5B7F500CC9538 /* InfoPlist.strings in Resources */,
+				FB7EA05118DA58300071103A /* restart@2x.png in Resources */,
+				FB7EA04E18DA58300071103A /* gamecenter@2x.png in Resources */,
 				FB6CA1E918D5B7F500CC9538 /* Main.storyboard in Resources */,
+				FB7EA05018DA58300071103A /* pause@2x.png in Resources */,
 				FB7EA03218D95FC10071103A /* UMSLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

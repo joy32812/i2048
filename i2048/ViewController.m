@@ -24,8 +24,8 @@
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
-#define PAUSE_OLD_CENTER CGPointMake(SCREEN_WIDTH + SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-#define PAUSE_NEW_CENTER CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+//#define PAUSE_OLD_CENTER CGPointMake(SCREEN_WIDTH + SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+//#define PAUSE_NEW_CENTER CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *board;
@@ -35,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet UIView *gameOverView;
 @property (weak, nonatomic) IBOutlet UILabel *bestScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentScoreLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *resumeContainerView;
+
 
 @end
 
@@ -75,13 +78,6 @@
     [self loadDuoMengAd];
     [self startTheGame];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.gamePauseView.center = PAUSE_OLD_CENTER;
-    self.gameOverView.center = PAUSE_OLD_CENTER;
 }
 
 
@@ -518,13 +514,18 @@
 - (IBAction)pauseTheGame:(id)sender {
     NSLog(@"pause");
     
+    self.gamePauseView.hidden = NO;
+    
+    self.resumeContainerView.transform = CGAffineTransformMakeScale(0, 0);
     [UIView animateWithDuration:0.2 animations:^{
-        self.gamePauseView.center = PAUSE_NEW_CENTER;
+        self.resumeContainerView.transform = CGAffineTransformIdentity;
+        
     }];
     
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         recognizer.enabled = NO;
     }
+    
 }
 
 
@@ -535,9 +536,8 @@
 
 - (IBAction)resume:(id)sender {
     
-    [UIView animateWithDuration:0.2 animations:^{
-        self.gamePauseView.center = PAUSE_OLD_CENTER;
-    }];
+    self.gamePauseView.hidden = YES;
+    self.gameOverView.hidden = YES;
     
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         recognizer.enabled = YES;
@@ -547,10 +547,8 @@
 
 - (IBAction)restart:(id)sender {
     
-    [UIView animateWithDuration:0.2 animations:^{
-        self.gamePauseView.center = PAUSE_OLD_CENTER;
-        self.gameOverView.center = PAUSE_OLD_CENTER;
-    }];
+    self.gamePauseView.hidden = YES;
+    self.gameOverView.hidden = YES;
     
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         recognizer.enabled = YES;
@@ -561,9 +559,7 @@
 
 - (void)finallyShowGameOverView
 {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.gameOverView.center = PAUSE_NEW_CENTER;
-    }];
+    self.gameOverView.hidden = NO;
     
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         recognizer.enabled = NO;
@@ -585,11 +581,6 @@
 
 - (void)showGameOverView
 {
-    NSLog(@"game over");
-    
-    
-    
-    
     for (int i = 0; i < NUM * NUM; i++) {
         UILabel *tile = (UILabel *)[_board viewWithTag:i + 1];
         
@@ -606,16 +597,14 @@
         }
     }
     
-    [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:1.5];
     
 }
 - (IBAction)showGameCenter:(id)sender {
     [[GameCenterManager sharedGameCenterManager] showLeaderboardsFromViewController:self];
 }
 
-- (IBAction)reportScore:(id)sender {
-    [[GameCenterManager sharedGameCenterManager] reportScore:theScore forCategory:@"WXY"];
-}
+
 - (IBAction)share:(id)sender {
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5329271256240b6b3f01b902"
