@@ -609,7 +609,7 @@
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5329271256240b6b3f01b902"
                                       shareText:@"你要分享的文字"
-                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                     shareImage:[UIImage imageNamed:@"share.png"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession, UMShareToWechatTimeline, UMShareToFacebook, UMShareToTwitter,nil]
                                        delegate:nil];
 }

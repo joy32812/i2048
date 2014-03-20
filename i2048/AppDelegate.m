@@ -10,6 +10,8 @@
 #import "GameCenterManager.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
+#import "UMSocialFacebookHandler.h"
+#import "UMSocialTwitterHandler.h"
 
 @implementation AppDelegate
 
@@ -19,7 +21,11 @@
     [[GameCenterManager sharedGameCenterManager] authenticateLocalPlayer];
     
     [UMSocialData setAppKey:@"5329271256240b6b3f01b902"];
+    [UMSocialConfig setSupportSinaSSO:YES];
+    [UMSocialData openLog:YES];
     [UMSocialWechatHandler setWXAppId:@"wxadfab11c23939393" url:nil];
+    [UMSocialFacebookHandler setFacebookAppID:@"1487228054831917" shareFacebookWithURL:@"https://itunes.apple.com/us/app/2048-go-go-go/id843568359?ls=1&mt=8"];
+    [UMSocialTwitterHandler openTwitter];
     
     // Override point for customization after application launch.
     return YES;
