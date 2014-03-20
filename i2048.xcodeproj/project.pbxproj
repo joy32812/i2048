@@ -67,6 +67,7 @@
 		FB7EA05118DA58300071103A /* restart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04B18DA58300071103A /* restart@2x.png */; };
 		FB7EA05218DA58300071103A /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04C18DA58300071103A /* share@2x.png */; };
 		FB7EA05318DA58300071103A /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7EA04D18DA58300071103A /* start@2x.png */; };
+		FB9AB44F18DABBE600603017 /* end_board@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB9AB44E18DABBE600603017 /* end_board@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		FB7EA04B18DA58300071103A /* restart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restart@2x.png"; sourceTree = "<group>"; };
 		FB7EA04C18DA58300071103A /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		FB7EA04D18DA58300071103A /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start@2x.png"; sourceTree = "<group>"; };
+		FB9AB44E18DABBE600603017 /* end_board@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "end_board@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				FB7EA04818DA58300071103A /* gamecenter@2x.png */,
+				FB9AB44E18DABBE600603017 /* end_board@2x.png */,
 				FB7EA04918DA58300071103A /* new_record@2x.png */,
 				FB7EA04A18DA58300071103A /* pause@2x.png */,
 				FB7EA04B18DA58300071103A /* restart@2x.png */,
@@ -535,6 +538,7 @@
 				FB7EA02D18D95FC10071103A /* UMSCommentDetailController.xib in Resources */,
 				FB6CA1EE18D5B7F500CC9538 /* Images.xcassets in Resources */,
 				FB101C8E18D6E7B300756057 /* DomobAdSDKBundle.bundle in Resources */,
+				FB9AB44F18DABBE600603017 /* end_board@2x.png in Resources */,
 				FB7EA05218DA58300071103A /* share@2x.png in Resources */,
 				FB7EA04F18DA58300071103A /* new_record@2x.png in Resources */,
 				FB7EA03518D95FC10071103A /* UMSocialSDKResourcesNew.bundle in Resources */,

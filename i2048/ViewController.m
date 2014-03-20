@@ -39,6 +39,10 @@
 @property (weak, nonatomic) IBOutlet UIView *resumeContainerView;
 
 
+@property (weak, nonatomic) IBOutlet UIView *scoreBoardView;
+@property (weak, nonatomic) IBOutlet UIImageView *knewRecordImageView;
+
+
 @end
 
 @implementation ViewController
@@ -559,7 +563,14 @@
 
 - (void)finallyShowGameOverView
 {
+    self.knewRecordImageView.hidden = YES;
     self.gameOverView.hidden = NO;
+    
+    self.scoreBoardView.transform = CGAffineTransformMakeScale(0, 0);
+    [UIView animateWithDuration:0.2 animations:^{
+        self.scoreBoardView.transform = CGAffineTransformIdentity;
+        
+    }];
     
     for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers) {
         recognizer.enabled = NO;
@@ -572,6 +583,12 @@
         bestScore = theScore;
         [Helper setBestScore:bestScore];
         
+        self.knewRecordImageView.hidden = NO;
+        self.knewRecordImageView.transform = CGAffineTransformMakeScale(3, 3);
+        [UIView animateWithDuration:1 animations:^{
+            self.knewRecordImageView.transform = CGAffineTransformIdentity;
+            
+        }];
         
         //Put when you post a score to a leaderboard
         [[GameCenterManager sharedGameCenterManager] reportScore:bestScore forCategory:@"WXY"];
@@ -597,7 +614,7 @@
         }
     }
     
-    [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(finallyShowGameOverView) withObject:nil afterDelay:0.5];
     
 }
 - (IBAction)showGameCenter:(id)sender {
@@ -606,12 +623,28 @@
 
 
 - (IBAction)share:(id)sender {
+    
+    UIImage *screenshot = [self imageWithView:self.view];
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+    
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"5329271256240b6b3f01b902"
-                                      shareText:@"你要分享的文字"
-                                     shareImage:[UIImage imageNamed:@"share.png"]
+                                      shareText:[NSString stringWithFormat:@"2048 Go! Score %d   %@", theScore, @"https://itunes.apple.com/us/app/2048-go!/id843568359?ls=1&mt=8"]
+                                     shareImage:screenshot
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession, UMShareToWechatTimeline, UMShareToFacebook, UMShareToTwitter,nil]
                                        delegate:nil];
+}
+
+- (UIImage *)imageWithView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 - (void)dealloc
